@@ -1,0 +1,33 @@
+@startuml
+
+Rectangle {
+  (GitHub Main Repo)
+  (CircleCI)
+}
+
+Rectangle {
+  (GitHub Flux Repo)
+}
+
+Rectangle {
+  (K8s Cluster)
+  (Flux)
+  (Istio)
+  (Cluster Endpoint)
+}
+
+Developer --> (GitHub Main Repo) : Push some code
+(GitHub Main Repo) --> (CircleCI) : Build the code change
+(CircleCI) --> (GitHub Flux Repo) : Canary tag and stable
+
+
+(GitHub Flux Repo) --> (Flux) : Got change
+(Flux) --> (Istio) : Phase in canary and services
+(Istio)--> (K8s Cluster) : Change pods and services
+
+Developer --> (Cluster Endpoint) : Verify Canary
+Developer --> (GitHub Flux Repo): Promote canary to stable
+
+(Flux) --> (Istio) :Replace canary with stable
+
+@enduml
