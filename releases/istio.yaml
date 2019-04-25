@@ -137,7 +137,7 @@ spec:
     # ingress configuration
     #
     ingress:
-      enabled: false
+      enabled: true
       replicaCount: 1
       autoscaleMin: 1
       autoscaleMax: 5
