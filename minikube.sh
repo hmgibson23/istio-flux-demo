@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+REPO=$1
+
 minikube start -p fluxstio --memory=4096 --cpus=2
 
 kubectl -n kube-system create sa tiller
@@ -17,7 +19,7 @@ helm repo add weaveworks https://weaveworks.github.io/flux
 
 helm install --name flux \
     --set helmOperator.create=true \
-    --set git.url=git@github.com:hmgibson23/istio-flux-demo \
+    --set git.url=git@github.com:$REPO \
     --set git.chartsPath=charts \
     --namespace flux \
     weaveworks/flux

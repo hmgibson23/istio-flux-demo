@@ -11,7 +11,7 @@ Rectangle {
 }
 
 Rectangle {
-  (K8s Cluster)
+  (K8s Service)
   (Flux)
   (Istio)
   (Cluster Endpoint)
@@ -24,7 +24,7 @@ Developer --> (GitHub Main Repo) : Push some code
 
 (GitHub Flux Repo) --> (Flux) : Got change
 (Flux) --> (Istio) : Phase in canary and services
-(Istio)--> (K8s Cluster) : Change pods and services
+(Istio)--> (K8s Service) : Change pods and services
 
 (CircleCI Job) --> (Cluster Endpoint) : Verify Canary
 (CircleCI Job) --> (GitHub Flux Repo): Promote canary to stable

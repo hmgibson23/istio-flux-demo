@@ -7,9 +7,9 @@ metadata:
 spec:
   host: podinfo
   subsets:
-  - name: ga
+  - name: stable
     labels:
-      release: ga
+      release: stable
   - name: canary
     labels:
       release: canary

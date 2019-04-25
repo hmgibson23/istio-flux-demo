@@ -5,22 +5,22 @@ metadata:
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.podinfod: glob:0.3.*
-  name: podinfo-ga
+  name: podinfo-stable
   namespace: test
   labels:
     app: podinfo
-    release: ga
+    release: stable
 spec:
   replicas: 1
   selector:
     matchLabels:
      app: podinfo
-     release: ga
+     release: stable
   template:
     metadata:
       labels:
         app: podinfo
-        release: ga
+        release: stable
       annotations:
         prometheus.io/scrape: 'true'
     spec:

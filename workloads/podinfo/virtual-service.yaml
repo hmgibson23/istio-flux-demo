@@ -20,5 +20,5 @@ spec:
       weight: 60
     - destination:
         host: podinfo
-        subset: ga
+        subset: stable
       weight: 40
