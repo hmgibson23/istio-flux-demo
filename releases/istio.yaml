@@ -463,7 +463,7 @@ spec:
           #     - tracing.local
 
     kiali:
-      enabled: false
+      enabled: true
       replicaCount: 1
       hub: docker.io/kiali
       tag: istio-release-1.0
