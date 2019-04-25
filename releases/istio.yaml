@@ -52,7 +52,7 @@ spec:
       # imagePullPolicy is applied to istio control plane components.
       # local tests require IfNotPresent, to avoid uploading to dockerhub.
       # TODO: Switch to Always as default, and override in the local tests.
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
 
       # controlPlaneMtls enabled. Will result in delays starting the pods while secrets are
       # propagated, not recommended for tests.
@@ -96,7 +96,7 @@ spec:
 
       # If set to true, the pilot and citadel mtls will be exposed on the
       # ingress gateway
-      meshExpansion: false
+      meshExpansion: true
 
       # If set to true, the pilot and citadel mtls and the plain text pilot ports
       # will be exposed on an internal gateway
@@ -247,7 +247,7 @@ spec:
       # for mesh expansion. It exposes the mtls ports for Pilot,CA as well
       # as non-mtls ports to support upgrades and gradual transition.
       istio-ilbgateway:
-          enabled: false
+          enabled: true
           labels:
             app: istio-ilbgateway
             istio: ilbgateway
